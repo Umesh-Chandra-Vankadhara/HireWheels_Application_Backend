@@ -9,7 +9,7 @@ const Booking = mongoose.model(
     },
     dropOffDate: {
       type: Date,
-      required: true,
+      required:true
     },
     bookingDate: {
       type: Date,

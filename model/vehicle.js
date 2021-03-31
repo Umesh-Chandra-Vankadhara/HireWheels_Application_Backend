@@ -6,7 +6,7 @@ const {
   DIESEL,
   SEDAN,
   HATCHBACK,
-  SUV,
+  SUV
   DIRTBIKE,
   SPORTSBIKE,
 } = require("../constants");
