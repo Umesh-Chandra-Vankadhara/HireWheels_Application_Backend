@@ -1,10 +1,10 @@
 const bcrypt = require("bcrypt");
 const config = require("config");
 const jwt = require("jsonwebtoken");
-const { User } = require("../models/user");
 const generateHash = require("../routes/hash");
 const _ = require("lodash");
 const { bonusAmount, AUTH_TOKEN } = require("../constants");
+const { User } = require("../model/user");
 
 async function signUp(req, res) {
   let user = await User.findOne({ email: req.body.email });
@@ -22,9 +22,8 @@ async function signUp(req, res) {
       password: await generateHash(req.body.password),
       walletMoney: bonusAmount,
     });
-    const addedUser = user.save();
-
-    const addedUser = await newUser.save();
+    
+    const addedUser = await user.save();
     res
       .status(200)
       .send(
@@ -63,7 +62,6 @@ async function signIn(req, res) {
       name: `${user.firstName} ${user.lastName}`,
       mobileNumber: user.mobileNumber,
       isAdmin: user.isAdmin,
-      walletMoney: bonusAmount,
     },
     config.get("secretKey")
   );

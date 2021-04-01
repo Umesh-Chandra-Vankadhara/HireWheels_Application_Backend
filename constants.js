@@ -1,18 +1,36 @@
-export const CAR ='car'
-export const BIKE='bike'
 
-export const SEDAN='sedan'
-export const SUV='sub'
-export const HATCHBACK='hatchback'
-export const DIRTBIKE='dirtbike'
-export const CRUSIER='crusier'
-export const SPORTSBIKE='sportsabike'
+ const CAR ='car'
+ const BIKE='bike'
 
-export const PETROL= "petrol"
-export const DIESEL = "diesel"
-export const CNG = "CNG"
+ const SEDAN='sedan'
+ const SUV='sub'
+ const HATCHBACK='hatchback'
+ const DIRTBIKE='dirtbike'
+ const CRUSIER='crusier'
+ const SPORTSBIKE='sportsabike'
 
-export const bonusAmount=100000
+ const PETROL= "petrol"
+ const DIESEL = "diesel"
+ const CNG = "CNG"
 
-export const AUTH_TOKEN ='x-auth-token'
-export const AUTHORIZATION = "Authorization";
+ const bonusAmount=100000
+
+ const AUTH_TOKEN ='x-auth-token'
+ const AUTHORIZATION = "Authorization";
+
+ module.exports = {
+   CAR,
+   BIKE,
+   SEDAN,
+   SUV,
+   HATCHBACK,
+   DIRTBIKE,
+   CRUSIER,
+   SPORTSBIKE,
+   PETROL,
+   DIESEL,
+   CNG,
+   bonusAmount,
+   AUTH_TOKEN,
+   AUTHORIZATION,
+ };

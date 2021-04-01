@@ -5,10 +5,8 @@ const cors=require('cors')
 const url =
   `mongodb://umeshchandra:${config.get("mongoPass")}@cluster0-shard-00-00.41mlf.mongodb.net:27017,cluster0-shard-00-01.41mlf.mongodb.net:27017,cluster0-shard-00-02.41mlf.mongodb.net:27017/hirewheels?authSource=admin&replicaSet=atlas-10fd6h-shard-0&readPreference=primary&appname=MongoDB%20Compass&ssl=true`;
 
-const usersRouter = require("./routes/users.js");
-const vehiclesRouter=require("./routes/vehicles.js");
-const locationsRouter = require("./routes/cityLocations.js");
 const { TOKEN ,AUTHORIZATION} = require("./constants.js");
+const router = require("./routes/index.js");
 
 const app = express();
 
@@ -19,10 +17,7 @@ const corsOptions={
   exposedHeaders:[TOKEN,AUTHORIZATION]
 }
 app.use(cors(corsOptions))
-
-app.use("/hirewheels/v1/users", usersRouter);
-app.use("/hirewheels/v1/vehicles",vehiclesRouter);
-app.use("/hirewheels/v1/cityLocations",locationsRouter);
+app.use(router);
 
 
 mongoose

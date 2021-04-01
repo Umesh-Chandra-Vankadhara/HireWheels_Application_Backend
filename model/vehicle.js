@@ -1,3 +1,4 @@
+const mongoose = require('mongoose')
 const {
   CAR,
   BIKE,
@@ -6,15 +7,14 @@ const {
   DIESEL,
   SEDAN,
   HATCHBACK,
-  SUV
+  SUV,
   DIRTBIKE,
   SPORTSBIKE,
 } = require("../constants");
 
-const mongoose = require(mongoose);
-
-const Vehicle = mongoose.model('vehicle',
-  new Schema({
+const Vehicle = mongoose.model(
+  'vehicle',
+  new mongoose.Schema({
     vehicleModel: {
       type: String,
       required: true,
@@ -36,17 +36,18 @@ const Vehicle = mongoose.model('vehicle',
       type: String,
       enum: [PETROL, CNG, DIESEL],
     },
-    vehicleColor:{
-        type:String,
-        required:true
+    vehicleColor: {
+      type: String,
+      required: true,
     },
-    imageURL:{
-        type:String,
-        required:true
+    imageURL: {
+      type: String,
+      required: true,
     },
     vehicleSubcategory: {
+      type:String,
       validate: {
-        validator: function (value) {
+        validator: function(value) {
           if (this.vehicleType === CAR) {
             return [SEDAN, HATCHBACK, SUV].includes(value);
           } else if (this.vehicleType === BIKE) {
@@ -59,11 +60,10 @@ const Vehicle = mongoose.model('vehicle',
       type: mongoose.Schema.Types.ObjectId,
       ref: "location",
     },
-    pricePerHour:{
-        type:Number,
-        required:true
-    }
+    pricePerHour: {
+      type: Number,
+      required: true,
+    },
   })
 );
-
 module.exports = { Vehicle };
